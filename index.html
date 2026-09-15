@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#080b18" />
+  <title>ANDRI GALERI • MAILTEMP</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">A<span>•</span></div>
+      <div class="brand-label">GALERI</div>
+    </div>
+    <div class="header-actions">
+      <button id="storageBadge" class="status-pill">💾 PENYIMPANAN LOKAL</button>
+      <button id="logoutBtn" class="logout-btn">↪ Keluar</button>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div class="eyebrow">ARSIP KENANGAN • PRIVATE</div>
+      <h1>Galeri Sejarah Berharga dan Indah</h1>
+      <p>Foto, video, musik, file, catatan, dan mailbox sementara. Data galeri disimpan langsung di perangkat/browser ini.</p>
+      <div class="clock" id="clock">00.00.00</div>
+    </section>
+
+    <section class="archive-card">
+      <div class="section-heading">
+        <div class="plus-box">＋</div>
+        <div>
+          <h2>Simpan ke Arsip</h2>
+          <p>Pilih foto, video, musik, atau file. Ukuran dibatasi oleh kapasitas browser.</p>
+        </div>
+      </div>
+      <div class="upload-grid">
+        <label class="upload-btn">📷<span>Foto</span><input type="file" accept="image/*" data-type="Foto" /></label>
+        <label class="upload-btn">🎬<span>Video</span><input type="file" accept="video/*" data-type="Video" /></label>
+        <label class="upload-btn">🎵<span>Musik</span><input type="file" accept="audio/*" data-type="Musik" /></label>
+        <label class="upload-btn">📁<span>File</span><input type="file" data-type="File" /></label>
+      </div>
+    </section>
+
+    <section class="mail-card">
+      <div class="mail-head">
+        <div>
+          <div class="eyebrow">MAILTEMP • INBOX</div>
+          <h2>Email aktif selama mailbox tersedia</h2>
+          <p class="muted">Mailbox dibuat melalui layanan Mail.tm. Masa aktif mengikuti kebijakan provider.</p>
+        </div>
+        <span id="mailStatus" class="online">● OFFLINE</span>
+      </div>
+      <div class="mail-address-row">
+        <input id="mailAddress" readonly placeholder="Belum ada alamat email" />
+        <button id="copyMailBtn" class="secondary-btn">Salin</button>
+        <button id="newMailBtn" class="primary-btn">Buat Email</button>
+      </div>
+      <div class="mail-toolbar">
+        <button id="refreshMailBtn" class="secondary-btn">↻ Refresh Inbox</button>
+        <span id="mailInfo" class="muted">Belum ada mailbox.</span>
+      </div>
+      <div id="inbox" class="inbox">
+        <div class="empty">Belum ada pesan. Buat alamat email untuk mulai menerima pesan.</div>
+      </div>
+    </section>
+
+    <nav class="tabs">
+      <button class="tab active" data-tab="archive">📦 Arsip</button>
+      <button class="tab" data-tab="notes">📝 Catatan</button>
+    </nav>
+
+    <section id="archivePanel" class="panel">
+      <div class="panel-title">
+        <div class="eyebrow">KOLEKSI LOKAL</div>
+        <input id="searchInput" class="search" placeholder="Cari arsip..." />
+      </div>
+      <div id="gallery" class="gallery"></div>
+    </section>
+
+    <section id="notesPanel" class="panel hidden">
+      <div class="panel-title">
+        <div class="eyebrow">CATATAN PRIBADI</div>
+        <button id="saveNoteBtn" class="primary-btn">Simpan Catatan</button>
+      </div>
+      <textarea id="notes" class="notes" placeholder="Tulis catatan kenangan di sini..."></textarea>
+    </section>
+  </main>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-box">
+      <button id="closeModal" class="close">×</button>
+      <div class="eyebrow">PESAN EMAIL</div>
+      <h2 id="modalSubject">Subjek</h2>
+      <p id="modalMeta" class="muted"></p>
+      <pre id="modalBody"></pre>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
